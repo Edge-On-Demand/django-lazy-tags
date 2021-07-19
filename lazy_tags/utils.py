@@ -2,7 +2,6 @@ import uuid
 
 from django.conf import settings
 from django.core.cache import cache
-from django.utils import six
 
 
 def get_tag_id():
@@ -62,7 +61,7 @@ def get_tag_html(tag_id):
     args_str = ''
     if args:
         for arg in args:
-            if isinstance(arg, six.string_types):
+            if isinstance(arg, str):
                 args_str += "'{0}' ".format(arg)
             else:
                 args_str += "{0} ".format(arg)
@@ -70,7 +69,7 @@ def get_tag_html(tag_id):
     kwargs_str = ''
     if kwargs:
         for name, value in kwargs.items():
-            if isinstance(value, six.string_types):
+            if isinstance(value, str):
                 kwargs_str += "{0}='{1}' ".format(name, value)
             else:
                 kwargs_str += "{0}={1} ".format(name, value)

@@ -3,10 +3,7 @@ import uuid
 from django.contrib.auth.models import User
 from django.test import TestCase
 from django.test.utils import override_settings
-try:
-    from django.urls import reverse
-except ImportError:
-    from django.core.urlresolvers import reverse
+from django.urls import reverse
 
 from lazy_tags.templatetags import lazy_tags
 from lazy_tags.utils import (
@@ -124,7 +121,7 @@ class LazyTagsUtilsTests(TestCase):
 
         self.assertEqual(html, "{% load lib %}{% tag_name 123 456 %}")
 
-    def test_get_tag_html_args_works_with_ints(self):
+    def test_get_tag_html_args_works_with_floats(self):
         tag_id = str(uuid.uuid4())
         set_lazy_tag_data(tag_id, 'lib.tag_name', [1.23, 4.56])
 
