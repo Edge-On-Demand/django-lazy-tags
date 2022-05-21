@@ -1,11 +1,11 @@
-from django.conf.urls import url, include
+from django.urls import re_path, include
 
 from . import views
 
 
 urlpatterns = [
-    url(r'^$', views.test_jquery, name='lazy_tags_jquery'),
-    url(r'^js/$', views.test_javascript, name='lazy_tags_javascript'),
-    url(r'^prototype/$', views.test_prototype, name='lazy_tags_prototype'),
-    url(r'^lazy_tags/', include('lazy_tags.urls')),
+    re_path(r'^$', views.test_jquery, name='lazy_tags_jquery'),
+    re_path(r'^js/$', views.test_javascript, name='lazy_tags_javascript'),
+    re_path(r'^prototype/$', views.test_prototype, name='lazy_tags_prototype'),
+    re_path(r'^lazy_tags/', include('lazy_tags.urls')),
 ]
